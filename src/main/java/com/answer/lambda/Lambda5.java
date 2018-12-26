@@ -3,6 +3,7 @@ package com.answer.lambda;
 import org.junit.Test;
 
 import java.util.Objects;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
@@ -32,5 +33,19 @@ public class Lambda5 {
 
         Predicate<Integer> predicate1 = integer -> integer > 3;
         System.out.println("4 > 3 ? " + predicate1.test(4));
+    }
+
+    /**
+     * Function接口接收一个参数，并返回单一的结果。默认方法可以将多个函数串在一
+     起（compse, andThen）
+     */
+    @Test
+    public void testFunctions(){
+        Function<String , Integer> toInteger = Integer::valueOf;
+        Function<String , String> backToString = toInteger.andThen(String::valueOf);
+        System.out.println(backToString.apply("123").getClass());
+        System.out.println(toInteger.apply("123").getClass());
+
+
     }
 }
