@@ -10,6 +10,8 @@ public class Student {
 
     private int age;
 
+    public Student(){}
+
     public String getName() {
         return name;
     }
@@ -28,6 +30,15 @@ public class Student {
 
     private void printStu(){
         System.out.println("this is a private void method!");
+    }
+
+
+    public Student(int age) {
+        this.age = age;
+    }
+
+    public Student(String name) {
+        this.name = name;
     }
 
     @Override
