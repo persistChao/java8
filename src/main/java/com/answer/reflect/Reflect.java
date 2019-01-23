@@ -17,6 +17,8 @@ public class Reflect {
 
     @Test
     public void testReflect() {
+        long begin = System.currentTimeMillis();
+        System.out.println(begin);
         Class c1 = Student.class;
         Student student = new Student();
         Class c2 = student.getClass();
@@ -42,6 +44,11 @@ public class Reflect {
         for (int i =0;i<ms.length;i++) {
             System.out.println(ms[i].getReturnType() + "  - " + ms[i].getName() + "-" + ms[i].getParameterTypes());
         }
+
+        System.out.println("========================");
+
+        System.out.println("" + System.currentTimeMillis() + " - " + (System.currentTimeMillis() - begin));
+        System.out.println((System.currentTimeMillis() - begin) / 1000);
     }
 
     @Test
