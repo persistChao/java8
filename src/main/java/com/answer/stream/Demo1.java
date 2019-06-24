@@ -84,4 +84,24 @@ public class Demo1 {
 
 
     }
+
+    @Test
+    public void test8() {
+        List<Person> personList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Person person = new Person();
+            person.setFirstName("su" + i);
+            person.setLastName("chao" + i );
+            personList.add(person);
+        }
+
+        List<String> list = new ArrayList<>();
+        list.add("su2");
+        list.add("chao3");
+
+        personList = personList.stream().filter(item -> !list.contains(item.getFirstName())).collect(Collectors.toList());
+        for (Person p: personList ) {
+            System.out.println(p.getFirstName() + " " + p.getLastName());
+        }
+    }
 }
