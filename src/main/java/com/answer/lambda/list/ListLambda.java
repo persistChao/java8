@@ -52,4 +52,10 @@ public class ListLambda {
         User user1 = userList.stream().max(Comparator.comparing(User::getAge)).get();
         System.out.println(user1);
     }
+
+    @Test
+    public void testReduce() {
+        int count = Stream.of(1, 2, 3).reduce(0, (acc, element) -> acc + element);
+        System.out.println(count);
+    }
 }
