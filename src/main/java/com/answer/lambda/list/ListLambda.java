@@ -88,12 +88,14 @@ public class ListLambda {
     public void testStreamFilter() {
         List<String> list = Stream.of("1", "3", "3", "54").collect(toList());
 
-        list.stream().filter(a -> {
-            if (Integer.valueOf(a) == 54) {
-                return a;
-            }
-
-        }).collect(toList());
+        list.stream().filter(a -> compareS(a,54)).collect(toList());
+        list.forEach(System.out::println);
     }
 
+    public boolean compareS (String a , int b) {
+        if (a.equals(String.valueOf(b))) {
+            return true;
+        }
+        return false;
+    }
 }
