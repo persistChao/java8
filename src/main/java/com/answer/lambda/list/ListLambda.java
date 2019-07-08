@@ -88,7 +88,7 @@ public class ListLambda {
     public void testStreamFilter() {
         List<String> list = Stream.of("1", "3", "3", "54").collect(toList());
 
-        list.stream().filter(a -> compareS(a,54)).collect(toList());
+        list = list.stream().filter(a -> a.contains("3")).collect(toList());
         list.forEach(System.out::println);
     }
 
